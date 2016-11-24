@@ -2,19 +2,20 @@ from collections import namedtuple
 
 __all__ = ('Elements', 'Components')
 
-Elem = namedtuple('Elem', ['symbol', 'name', 'MW'], verbose=True)
-Comp = namedtuple('Comp', ['symbol', 'name', 'elems'], verbose=True)
+Elem = namedtuple('Elem', ['symbol', 'name', 'MW'])
+Comp = namedtuple('Comp', ['symbol', 'name', 'elems'])
 
 Elements = {
-    'c': Elem('c', 'Carbon', 12),
-    'h': Elem('h', 'Hydrogen', 1),
-    'o': Elem('o', 'Oxygen', 16),
+    'C': Elem('C', 'Carbon', 12),
+    'H': Elem('H', 'Hydrogen', 1),
+    'O': Elem('O', 'Oxygen', 16),
 }
 
-Components = [
-    Elem('ch4', 'methane', {Elements['c']:1, Elements['h']:4}),
-    Elem('h2', 'hydrogen', {Elements['h']:2}),
-    Elem('co2', 'carbon dioxide', {Elements['c']:1, Elements['o']:2}),
-    Elem('co', 'carbon monoxide', {Elements['c']:1, Elements['o']:1}),
-]
+Components = (
+    Comp('CH4', 'methane', {'C':1, 'H':4}),
+    Comp('H2', 'hydrogen', {'H':2}),
+    Comp('CO2', 'carbon dioxide', {'C':1, 'O':2}),
+    Comp('CO', 'carbon monoxide', {'C':1, 'O':1}),
+    Comp('O2', 'carbon monoxide', {'O':2}),
+)
 
